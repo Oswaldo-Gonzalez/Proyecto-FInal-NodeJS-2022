@@ -4,17 +4,28 @@
   "description": "José Oswaldo González Méndez - Proyecto final del taller de NodeJS",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Oswaldo-Gonzalez/Proyecto-FInal-NodeJS-2022.git"
   },
   "keywords": [
     "api",
     "rest",
     "express",
-    "nodejs"
+    "nodejs",
+    "jwt"
   ],
   "author": "José Oswaldo González Méndez",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oswaldo-Gonzalez/Proyecto-FInal-NodeJS-2022/issues"
+  },
+  "homepage": "https://github.com/Oswaldo-Gonzalez/Proyecto-FInal-NodeJS-2022#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
   }
 }
