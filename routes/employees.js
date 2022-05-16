@@ -14,9 +14,9 @@ employees.post("/", async (req, res, next) => { // Adds a new employee to the da
         if(rows.affectedRows == 1){
             return res.status(201).json({code: 201, message: "New employee added to system"});
         }
-        return res.status(500).json({code: 500, message: "An error ocurred"})
+        return res.status(500).json({code: 500, message: "An error ocurred"});
     }
-    return res.status(500).json({code: 500, message: "Incomplete fields"})
+    return res.status(500).json({code: 500, message: "Incomplete fields"});
 });
 
 employees.delete("/:id([0-9]{1,3})", async (req, res, next) => {

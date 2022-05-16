@@ -2,6 +2,7 @@ const morgan = require('morgan');
 const express = require('express');
 const app = express();
 const employees = require('./routes/employees');
+const users = require('./routes/users')
 
 app.use(morgan('dev'));
 app.use(express.json());
@@ -12,6 +13,7 @@ app.get("/", (req, res, next) => { // Root address
 });
 
 app.use("/employees", employees);
+app.use("/users", users);
 
 app.use((req, res, next) => {
     return res.status(404).json({code: 404, message: "URL not found"});
