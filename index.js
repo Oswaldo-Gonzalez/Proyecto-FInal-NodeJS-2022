@@ -1,23 +1,25 @@
 const morgan = require('morgan');
 const express = require('express');
 const app = express();
+
 const employees = require('./routes/employees');
-const users = require('./routes/users')
+const users = require('./routes/users');
+const auth = require('./middleware/auth');
+const notFound = require('./middleware/notFound');
+const index = require('./middleware/index')
 
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res, next) => { // Root address
-   return res.status(200).json({code: 1, messsage: "Welcome to Taller de Node.js S.A. de C.V. employee system"});
-});
+app.get("/", index);
 
-app.use("/employees", employees);
 app.use("/users", users);
+app.use(auth);
+app.use("/employees", employees);
 
-app.use((req, res, next) => {
-    return res.status(404).json({code: 404, message: "URL not found"});
-});
+
+app.use(notFound);
 
 app.listen(process.env.PORT || 3000, () => {
     console.log("Server is running...");
